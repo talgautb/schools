@@ -1,0 +1,22 @@
+[
+  {
+    "name": "город Алматы",
+    "id": 2,
+    "graduate_kaz": 2984,
+    "graduate_ru": 3726,
+    "graduate_ui": 47,
+    "graduates_all": 6757,
+    "internationals": 162,
+    "graduates_ent_kaz": 2662,
+    "graduates_ent_ru": 2546,
+    "graduates_ent": 5208,
+    "ent_result_2016": 96.21,
+    "ent_result_2015": 92.1,
+    "ent_result_2014": 93.41,
+    "ent_failed": 130,
+    "ent_failed_percent": "2,50%",
+    "ent_succes_70_125": 3842,
+    "ent_succes_101_125": 2313,
+    "ent_failed_0_3": 32
+  }
+]

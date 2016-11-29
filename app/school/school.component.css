@@ -1,0 +1,44 @@
+h2 {
+  margin-top: 40px;
+}
+
+h3 {
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #ddd;
+}
+
+.big {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.red {
+  color: red;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.info {
+  max-width: 200px;
+  width: 100%;
+  display: inline-block;
+}
+
+.label {
+  margin-bottom: 15px;
+}
+
+.label-private,
+.label-gos {
+  background-color: darkblue;
+  color: #fff;
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.label-gos {
+  background-color: green;
+}

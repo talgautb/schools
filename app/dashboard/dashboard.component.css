@@ -1,0 +1,185 @@
+.bad {
+  color: red;
+}
+
+.good {
+  color: green;
+}
+
+.good,
+.bad {
+  position: absolute;
+  top: 50%;
+  margin-top: -7px;
+  right: -37px;
+  width: 35px;
+  font-size: 11px;
+}
+
+.table {
+  border-collapse: collapse;
+  /*width: 60%;*/
+  /*max-width: 768px;*/
+}
+
+/*@media(max-width: 768px) {
+  .table {
+    width: 95%;
+  }
+}*/
+
+.table td {
+  font-size: 18px;
+  padding: 10px 3px;
+  position: relative;
+}
+
+.is--center {
+  text-align: center;
+}
+
+.is--right {
+  text-align: right;
+}
+
+.table tr:first-child td,
+.table tr:nth-child(2) td,
+.table tr:nth-child(3) td {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.table tr:first-child td:first-child {
+  background-color: gold;
+}
+
+.table tr:nth-child(2) td:first-child {
+  background-color: silver;
+}
+
+.table tr:nth-child(3) td:first-child {
+  /*font-weight: 500;*/
+  background-color: #cd7f32;
+}
+
+.table tr:hover {
+  background-color: #fff9c0;
+}
+
+.title {
+  margin-top: 30px;
+}
+
+.data {
+  font-size: 14px;
+  margin-bottom: 15px;
+  margin-top: -10px;
+}
+
+.progress {
+  height: 2px;
+  background-color: #ccc;
+}
+
+.progress__line {
+  background-color: #337AB7;
+  height: 100%;
+}
+
+.filter-btn {
+  font-size: 13px;
+  color: #337AB7;
+  font-weight: 300;
+  margin-left: 1%;
+  border-bottom: 1px dashed #337AB7;
+}
+
+.filter-btn:hover {
+  cursor: pointer;
+}
+
+.filter {
+  margin: 25px 0 15px;
+}
+
+.filter__block {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.filter__block select {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filter__block button {
+  background-color: #fff;
+  color: #337AB7;
+  padding: 7px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.filter__block button:hover {
+  background-color: #eee;
+}
+
+.input {
+  padding: 7px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.table th {
+  font-weight: 400;
+  font-size: 12px;
+  font-family: 'Roboto', Arial, sans-serif;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.inventer {
+  display: inline-block;
+  vertical-align: top;
+  width: 60%;
+  max-width: 768px;
+  padding-bottom: 20px;
+}
+
+@media(max-width: 768px) {
+  .inventer {
+    width: 95%;
+  }
+}
+
+.info-data {
+  display: inline-block;
+  vertical-align: top;
+  width: 39%;
+  padding-left: 10%;
+  margin-top: 187px;
+}
+
+@media(max-width: 768px) {
+  .info-data {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+}
+
+
+.info {
+  margin-bottom: 24px;
+}
+
+.info__numb {
+  font-size: 32px;
+}
+
+.subtitle {
+  margin-top: 0;
+  font-size: 24px;
+}

@@ -1,0 +1,89 @@
+
+<div class="inventer">
+  <div class="grid">
+    <h1 class="title">{{'bestSchools' | translate }}</h1>
+
+    <div class="data">
+      {{'site.description' | translate }}
+    </div>
+
+    <div class="filter" *ngIf="!showFilter">
+      <div class="filter__block">
+        <input type="text" [(ngModel)]="searchBox" placeholder="{{'filter.searchText' | translate }}" class="input">
+      </div>
+
+      <div class="filter__block">
+        <select [(ngModel)]="schoolType">
+          <option value="">{{ 'filter.all' | translate }}</option>
+          <option value="ош">{{'filter.gos' | translate }}</option>
+          <option value="чш">{{'filter.private' | translate }}</option>
+        </select>
+      </div>
+
+      <div class="filter__block">
+        <button (click)="resetFilter()">{{'filter.reset' | translate }}</button>
+      </div>
+    </div>
+
+    <div class="schools is--centered">
+      <table class="table" *ngIf="schools">
+        <thead>
+          <th style="width: 5%">№</th>
+          <th>Школа</th>
+          <th style="width: 15%">{{ 'site.gpa' | translate }}</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let school of schools | filterByGos: schoolType:searchBox; let i=index;">
+            <td class="is--center">{{ i + 1}}</td>
+            <td><a [routerLink]="['/school', school.id]">{{ school.name }}</a></td>
+            <td title="Средний балл и процент выпускников, сдавших ЕНТ">
+              {{ school.ent_result_2016 }} <span *ngIf="school.ent_result_2015" [ngClass]="{'bad': (school.ent_result_2016 - school.ent_result_2015) < 0, 'good': (school.ent_result_2016 - school.ent_result_2015) > 0}">{{ (school.ent_result_2016 - school.ent_result_2015).toFixed(2) }}</span>
+              <div class="progress">
+                <div class="progress__line" [style.width]="school.graduates_ent*100/school.graduates_all + '%'"></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="!schools">
+        <div style="text-align: center;">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/585d0331234507.564a1d239ac5e.gif">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="info-data">
+  <div class="grid">
+    <h3 class="subtitle">{{ 'city.numbers' | translate }}</h3>
+
+    <div class="info">
+      <div class="info__numb">
+        {{ allSchools }}
+      </div>
+      <div class="info__text">
+        {{ 'city.schools' | translate }}
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="info__numb">
+        {{ entOfCity }}
+      </div>
+      <div class="info__text">
+        {{ 'city.gpa' | translate }}
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="info__numb">
+        {{ failedPeople }}
+      </div>
+      <div class="info__text">
+        <span>{{ 'city.schools' | translate }}</span>
+      </div>
+    </div>
+  </div>
+</div>

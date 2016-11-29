@@ -1,0 +1,63 @@
+<div class="school" *ngIf="school">
+  <h2>{{ school.name }}</h2>
+
+  <h3>{{ 'school.info' | translate }}</h3>
+
+  <p *ngIf="school.logo">
+    <img [src]="school.logo" alt="" style="max-width: 200px;width:100%;">
+  </p>
+  <p>
+    {{ 'school.lang' | translate }}: {{school.lang}}
+  </p>
+
+  <div *ngIf="school.type" class="label">
+    <span *ngIf="school.type == 'чш'" class="label-private">{{ 'school.private' | translate }}</span>
+    <span *ngIf="school.type !== 'чш'" class="label-gos">{{ 'school.public' | translate }}</span>
+  </div>
+
+  <div *ngIf="info">
+    <div *ngIf="info.site">Сайт школы: <a [href]="info.site" target="_blank">{{ info.site }}</a></div>
+  </div>
+
+  <p *ngIf="school.site">
+    {{ 'school.site' | translate }}: <a [href]="school.site" target="_blank">{{ school.site }}</a>
+  </p>
+
+
+  <h3>{{ 'school.ent' | translate }}</h3>
+
+  <p>Единое национальное тестирование — система оценки знаний выпускников, применяемая в Республике Казахстан. ЕНТ проходит в один этап и оценивается по 125-балльной шкале. Ученики в один день сдают пять предметов: математика, история Казахстана, русский язык, казахский язык и предмет по выбору (история мира, иностранный язык, биология, география, химия, физика, литература) — по 25 заданий на каждый. На проведение ЕНТ отводится 3,5 часа, то есть 210 минут. Минимальный проходной балл для поступающих в вузы в 2015, 2016 годах — 50 из 100.</p>
+
+  <chart [options]="options"></chart>
+
+  <h3>{{ 'school.ent2016' | translate }}</h3>
+
+  <div *ngIf="school.graduates_ent < school.graduates_all">В 2016 году ЕНТ сдавали {{ school.graduates_ent }} из {{ school.graduates_all }} выпускников, то есть <span [ngClass]="{'red': info.percent <= 50}">{{ info.percent }}%</span>.</div>
+
+  <div *ngIf="school.graduates_ent == school.graduates_all">В 2016 году ЕНТ сдавали все {{ school.graduates_all }} выпускников школы.</div>
+
+  <div>Средний балл - <span [ngClass]="{'red': city.ent_result_2016 >= school.ent_result_2016 }">{{ school.ent_result_2016 }}</span></div>
+
+  <chart [options]="optionschart"></chart>
+
+  <h3>{{ 'school.vs' | translate }}</h3>
+
+  <p>
+    {{ 'school.vsGraph' | translate }}
+  </p>
+
+  <chart [options]="optionscompare"></chart>
+
+  <h3 *ngIf="school.internationals || school.ent_failed">Достижения</h3>
+
+  <div *ngIf="school.internationals" class="info">
+    <div class="big">{{ school.internationals }}</div>
+    международники
+  </div>
+
+  <div *ngIf="school.ent_failed" class="info">
+    <div class="big">{{ school.ent_failed }}</div>
+    не набрали проходной
+  </div>
+
+</div>

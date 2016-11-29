@@ -1,0 +1,38 @@
+{
+  "qq": "qazaq",
+  "ru": "русский",
+  "en": "english",
+  "bestSchools": "Best schools of Almaty",
+  "site": {
+    "title": "Schools of Qazaqstan",
+    "about": "About project",
+    "description": "according to the results of UNT for 2015-2016 academic year",
+    "rating": "Rating of schools",
+    "gpa": "gpa",
+    "school": "school"
+  },
+  "city": {
+    "numbers": "Statistic of city",
+    "schools": "schools",
+    "gpa": "gpa",
+    "failEnt": "failed UNT"
+  },
+  "filter": {
+    "searchText": "Search",
+    "all": "All",
+    "gos": "Public",
+    "private": "Private",
+    "reset": "Reset"
+  },
+  "school": {
+    "info": "About school",
+    "lang": "Language learning",
+    "site": "Site",
+    "private": "Private school",
+    "public": "Public school",
+    "ent": "UNT",
+    "ent2016": "UNT in 2016",
+    "vs": "School vs City",
+    "vsGraph": "Comparative schedule UNT 2016 school and city."
+  }
+}
