@@ -16,6 +16,10 @@ All data taken from the Department of Education [website of Almaty](http://edual
 - create issue about feature;
 - free to send PR.
 
+## License
+
+[CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+
 ## TODO
 
 - add translations;
