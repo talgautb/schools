@@ -16,14 +16,8 @@ All data taken from the Department of Education [website of Almaty](http://edual
 - create issue about feature;
 - free to send PR.
 
+build with angular2-webpack-starter
+
 ## License
 
 [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
-
-## TODO
-
-- add translations;
-- compare schools;
-- add types of schools;
-- add new cities;
-- cool loader.

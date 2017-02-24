@@ -1,20 +1,31 @@
-dist: trusty
 sudo: required
+dist: trusty
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 language: node_js
 node_js:
+  - "4"
   - "5"
-os:
-  - linux
-env:
-  global:
-    - DBUS_SESSION_BUS_ADDRESS=/dev/null
-    - DISPLAY=:99.0
-    - CHROME_BIN=chromium-browser
-before_script:
-  - sh -e /etc/init.d/xvfb start
+  - "6"
+  - "node"
+matrix:
+  fast_finish: true
+  allow_failures:
+  - node_js: "4"
+before_install:
+  - npm i npm@^4 -g
 install:
   - npm install
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
 script:
-  - npm run lint
-  - npm run test-once 
-  - npm run e2e
+  - npm run ci:travis
+cache:
+  directories:
+    - node_modules

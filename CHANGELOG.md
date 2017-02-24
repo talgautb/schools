@@ -1,3 +1,9 @@
+<a name="2.0.0"></a>
+# 2.0.0 (2017-02-24)
+* Update template for project
+  * Angular 2.4.6
+  * build with angular2-webpack-starter
+
 <a name="1.0.0.beta"></a>
 # 1.0.0.beta (2016-11-29)
 * Init project

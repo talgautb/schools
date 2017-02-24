@@ -1,0 +1,39 @@
+<div class="content grid">
+  <header class="header">
+    <h1 class="title">
+      <a routerLink="/">
+        <img src="/assets/img/logo.svg" alt="" />
+        <span>{{ 'site.title' | translate }}</span>
+      </a>
+    </h1>
+
+    <a
+      *ngFor="let lang of translate.getLangs()"
+      (click)="translate.use(lang)"
+      class="lang-link"
+      title="{{ lang | translate }}"
+      [ngClass]="{'is--current': (lang == translate.currentLang) }">
+      {{ lang }}
+    </a>
+
+    <nav class="nav">
+      <a
+        class="nav__link"
+        routerLink="/"
+        routerLinkActive="active">
+        {{'site.rating' | translate }}
+      </a>
+
+      <a
+        class="nav__link"
+        routerLink="/about"
+        routerLinkActive="active">
+        {{ 'site.about' | translate }}
+      </a>
+    </nav>
+  </header>
+
+  <router-outlet></router-outlet>
+
+  <footer-component></footer-component>
+</div>
