@@ -1,6 +1,6 @@
 {
   "name": "qazaqstan-schools",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Simple project about school on angular",
   "keywords": [
     "angular",
@@ -68,7 +68,7 @@
     "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
   },
- "dependencies": {
+  "dependencies": {
     "@angular/animations": "~4.0.3",
     "@angular/common": "~4.0.3",
     "@angular/compiler": "~4.0.3",
