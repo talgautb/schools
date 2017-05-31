@@ -34,6 +34,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let school of schools | FilterByGos: schoolType:searchBox; let i=index;">
+          <!--<tr *ngFor="let school of schools; let i=index;">-->
             <td class="is--center">{{ i + 1}}</td>
             <td><a [routerLink]="['/school', school.id]">{{ school.name }}</a></td>
             <td title="Средний балл и процент выпускников, сдавших ЕНТ">

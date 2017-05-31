@@ -11,7 +11,7 @@ import { School, City, Info } from './school';
   styleUrls: ['./school.component.css']
 })
 
-export class SchoolComponent extends OnInit {
+export class SchoolComponent implements OnInit {
   cityId: number;
   school: School;
   id: any;
@@ -24,7 +24,6 @@ export class SchoolComponent extends OnInit {
   constructor(
     private router: ActivatedRoute,
     private schoolService: SchoolService) {
-    super();
     this.info = {
       site: '',
       percent: ''

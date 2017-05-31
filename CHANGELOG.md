@@ -1,3 +1,11 @@
+<a name="2.1.0"></a>
+# 2.1.0 (2017-05-31)
+* Update angular
+  * Angular 4.0.3
+  * update dependencies
+  * upgrade ng2-translate to ngx-translate
+  * update angular2-webpack-starter
+
 <a name="2.0.0"></a>
 # 2.0.0 (2017-02-24)
 * Update template for project

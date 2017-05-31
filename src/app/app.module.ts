@@ -12,15 +12,16 @@ import { FooterComponent } from './footer/footer.component';
 
 import { SchoolService }      from './school/school.service';
 import { ROUTES } from './app.routes';
-import { AppRoutingModule }     from './app-routing.module';
+// import { AppRoutingModule }     from './app-routing.module';
 
 import { ChartModule } from 'angular2-highcharts';
 import { FilterByGos } from './dashboard/gos.pipe';
 
-import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-function createTranslateLoader(http: Http) {
-  return new TranslateStaticLoader(http, './assets/i18n', '.json');
+export function createTranslateLoader(http: Http) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -28,11 +29,13 @@ function createTranslateLoader(http: Http) {
     BrowserModule,
     FormsModule,
     HttpModule,
-    ChartModule,
+    ChartModule.forRoot(require('highcharts')),
     TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: (createTranslateLoader),
-      deps: [Http]
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [Http]
+      }
     }),
     RouterModule.forRoot(ROUTES)
   ],
