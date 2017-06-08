@@ -24,7 +24,12 @@ export class AppComponent {
     translate.setDefaultLang('ru');
 
     let browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|ru|qq/) ? browserLang : 'ru');
+    let savedLang = localStorage.getItem('lang');
+    if (browserLang === 'kk') {
+      browserLang = 'qq'; // hack
+    }
+    let lang = (savedLang) ? savedLang : browserLang.match(/en|ru|qq/) ? browserLang : 'ru';
+    this.setLang(lang);
 
     // Send pageview to google analytics
     router.events.subscribe((event: Event) => {
@@ -36,5 +41,19 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  /**
+   * Change site language and save it to localStorage
+   *
+   * @param {string} lang
+   *
+   * @memberof AppComponent
+   */
+  public setLang(lang: string) {
+    if (lang !== this.translate.currentLang) {
+      this.translate.use(lang);
+      localStorage.setItem('lang', lang);
+    }
   }
 }

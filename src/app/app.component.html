@@ -9,7 +9,7 @@
 
     <a
       *ngFor="let lang of translate.getLangs()"
-      (click)="translate.use(lang)"
+      (click)="setLang(lang)"
       class="lang-link"
       title="{{ lang | translate }}"
       [ngClass]="{'is--current': (lang == translate.currentLang) }">
