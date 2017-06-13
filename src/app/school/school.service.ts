@@ -6,38 +6,37 @@ import { School } from './school';
 
 @Injectable()
 export class SchoolService {
-
   private schoolsUrl = 'assets/data/schools.json';
   private citiesUrl = 'assets/data/cities.json';
 
   constructor(private http: Http) {}
 
-  getSchools() {
+  public getSchools() {
     return this.http.get(this.schoolsUrl)
       .toPromise()
-      .then(school => school.json());
+      .then((school) => school.json());
   }
 
   /**
    * get school by id
    * @param {String|Number} id number of school or code of school
    */
-  getSchool(id: any) {
+  public getSchool(id: any) {
     return this.getSchools()
-      .then(schools => schools.find((school: School) => school.id === id));
+      .then((schools) => schools.find((school: School) => school.id === id));
   }
 
-  getRegions() {
+  public getRegions() {
     return this.http.get(this.citiesUrl)
       .toPromise()
-      .then(cities => cities.json());
+      .then((cities) => cities.json());
   }
   /**
    * Get city or regions
    * @param {Number} id codes license plates of Kazakhstan regions
    */
-  getRegion(id: any) {
+  public getRegion(id: any) {
     return this.getRegions()
-      .then(cities => cities.find((city: any) => city.id === id));
+      .then((cities) => cities.find((city: any) => city.id === id));
   }
 }

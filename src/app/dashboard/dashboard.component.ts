@@ -10,28 +10,32 @@ import { SchoolService } from '../school/school.service';
 })
 
 export class DashboardComponent implements OnInit {
-
-  schools: School[];
-  bestOf: School[];
-  allSchools: number = 0;
-  entOfCity: any = 0;
-  failedPeople: number = 0;
-  schoolType: string;
-  showFilter: Boolean = false;
-  searchBox: string;
+  public schools: School[];
+  public bestOf: School[];
+  public allSchools: number = 0;
+  public entOfCity: any = 0;
+  public failedPeople: number = 0;
+  public schoolType: string;
+  public showFilter: Boolean = false;
+  public searchBox: string;
 
 constructor(private schoolService: SchoolService) {
     this.searchBox = '';
   }
 
   // here we go
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getSchools();
   }
 
-  getSchools(): void {
+  public resetFilter(): void {
+    this.schoolType = '';
+    this.searchBox = '';
+  }
+
+  private getSchools(): void {
     this.schoolService.getSchools()
-      .then(school => {
+      .then((school: any) => {
         let arr = school;
 
         arr.sort((a: any, b: any) => {
@@ -46,7 +50,7 @@ constructor(private schoolService: SchoolService) {
   /**
    * create info about city on main page
    */
-  createAdditionalData(): void {
+  private createAdditionalData(): void {
     if (this.schools.length) {
       let numb = 0;
       let fail = 0;
@@ -62,10 +66,5 @@ constructor(private schoolService: SchoolService) {
       this.failedPeople = fail;
       this.entOfCity = (numb / this.schools.length).toFixed(2);
     }
-  }
-
-  resetFilter(): void {
-    this.schoolType = '';
-    this.searchBox = '';
   }
 }

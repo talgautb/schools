@@ -1,4 +1,4 @@
-export class School {
+export interface School {
   ent_failed: number;
   ent_result_2014: number;
   ent_result_2015: number;
@@ -17,7 +17,7 @@ export class School {
   logo: string;
 }
 
-export class City {
+export interface City {
   ent_failed: number;
   ent_result_2014: number;
   ent_result_2015: number;
@@ -34,7 +34,7 @@ export class City {
   ent_failed_0_3: number;
 }
 
-export class Info {
+export interface Info {
   percent: string;
   site: string;
 }

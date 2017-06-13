@@ -1,6 +1,15 @@
+<a name="2.1.2"></a>
+# 2.1.2 (2017-06-13)
+* lint code
+
+<a name="2.1.1"></a>
+# 2.1.1 (2017-06-08)
+* Language
+  * now selected language saved in localStorage
+
 <a name="2.1.0"></a>
 # 2.1.0 (2017-05-31)
-* Update angular
+* Update angular  
   * Angular 4.0.3
   * update dependencies
   * upgrade ng2-translate to ngx-translate

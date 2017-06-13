@@ -3,7 +3,6 @@ import { Params, ActivatedRoute } from '@angular/router';
 
 import { SchoolService } from './school.service';
 import { School, City, Info } from './school';
-// import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'my-school',
@@ -12,14 +11,15 @@ import { School, City, Info } from './school';
 })
 
 export class SchoolComponent implements OnInit {
-  cityId: number;
-  school: School;
-  id: any;
-  info: Info;
-  city: City;
-  options: Object;
-  optionscompare: Object;
-  optionschart: Object;
+  public school: School;
+  public id: any;
+  public info: Info;
+  public city: City;
+  public options: Object;
+  public optionscompare: Object;
+  public optionschart: Object;
+  // default Almaty
+  private cityId: number = 2;
 
   constructor(
     private router: ActivatedRoute,
@@ -28,29 +28,27 @@ export class SchoolComponent implements OnInit {
       site: '',
       percent: ''
     };
-    // default Almaty
-    this.cityId = 2;
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.router.params.forEach((params: Params) => {
       this.id = params['id'];
       this.getRegion();
     });
   }
 
-  getRegion(): void {
+  private getRegion(): void {
     this.schoolService.getRegion(this.cityId)
-      .then(city => {
+      .then((city: City) => {
         this.city = city;
         // get school data
         this.getSchool();
       });
   }
 
-  getSchool(): void {
+  private getSchool(): void {
     this.schoolService.getSchool(this.id)
-      .then(school => {
+      .then((school: School) => {
         this.school = school;
         if (!this.school.site) {
           this.school.site = '';
@@ -59,7 +57,7 @@ export class SchoolComponent implements OnInit {
       });
   }
 
-  getInfo() {
+  private getInfo() {
     // sites like 19.alschool.kz
     this.info.site = `http://${+this.id}.alschool.kz`;
 
@@ -109,6 +107,9 @@ export class SchoolComponent implements OnInit {
         }]
       };
 
+      let sc = this.school;
+      let ct = this.city;
+
       /**
        * Compare school's results with city's results
        * @type {Object}
@@ -152,22 +153,22 @@ export class SchoolComponent implements OnInit {
           }
         },
         series: [{
-          name: this.school.name,
+          name: sc.name,
           data: [
-            this.school.ent_failed_0_3 * 100 / this.school.graduates_ent,
-            (this.school.ent_failed - this.school.ent_failed_0_3) * 100 / this.school.graduates_ent,
-            (this.school.graduates_ent - this.school.ent_failed - this.school.ent_succes_70_125) * 100 / this.school.graduates_ent,
-            (this.school.ent_succes_70_125 - this.school.ent_succes_101_125) * 100 / this.school.graduates_ent,
-            (this.school.ent_succes_101_125 * 100) / this.school.graduates_ent
-            ]
+            sc.ent_failed_0_3 * 100 / sc.graduates_ent,
+            (sc.ent_failed - sc.ent_failed_0_3) * 100 / sc.graduates_ent,
+            (sc.graduates_ent - sc.ent_failed - sc.ent_succes_70_125) * 100 / sc.graduates_ent,
+            (sc.ent_succes_70_125 - sc.ent_succes_101_125) * 100 / sc.graduates_ent,
+            (sc.ent_succes_101_125 * 100) / sc.graduates_ent
+          ]
         }, {
-          name: this.city.name,
+          name: ct.name,
           data: [
-            this.city.ent_failed_0_3 * 100 / this.city.graduates_ent,
-            (this.city.ent_failed - this.city.ent_failed_0_3) * 100 / this.city.graduates_ent,
-            (this.city.graduates_ent - this.city.ent_failed - this.city.ent_succes_70_125) * 100 / this.city.graduates_ent,
-            (this.city.ent_succes_70_125 - this.city.ent_succes_101_125) * 100 / this.city.graduates_ent,
-            (this.city.ent_succes_101_125 * 100) / this.city.graduates_ent
+            ct.ent_failed_0_3 * 100 / ct.graduates_ent,
+            (ct.ent_failed - ct.ent_failed_0_3) * 100 / ct.graduates_ent,
+            (ct.graduates_ent - ct.ent_failed - ct.ent_succes_70_125) * 100 / ct.graduates_ent,
+            (ct.ent_succes_70_125 - ct.ent_succes_101_125) * 100 / ct.graduates_ent,
+            (ct.ent_succes_101_125 * 100) / ct.graduates_ent
           ]
         }]
       };
@@ -204,19 +205,19 @@ export class SchoolComponent implements OnInit {
           colorByPoint: true,
           data: [{
             name: '0-3',
-            y: this.school.ent_failed_0_3
+            y: sc.ent_failed_0_3
           }, {
             name: '3-50',
-            y: this.school.ent_failed - this.school.ent_failed_0_3
+            y: sc.ent_failed - sc.ent_failed_0_3
           }, {
             name: '50-70',
-            y: this.school.graduates_ent - this.school.ent_failed - this.school.ent_succes_70_125
+            y: sc.graduates_ent - sc.ent_failed - sc.ent_succes_70_125
           }, {
             name: '70-101',
-            y: this.school.ent_succes_70_125 - this.school.ent_succes_101_125
+            y: sc.ent_succes_70_125 - sc.ent_succes_101_125
           }, {
             name: '101-125',
-            y: this.school.ent_succes_101_125
+            y: sc.ent_succes_101_125
           }]
         }]
       };
